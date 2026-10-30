@@ -1,0 +1,23 @@
+{
+  "episodes_per_method_and_budget": 500,
+  "steps_per_mission": 20,
+  "certificate_at_largest_radius": {
+    "L": 5.585369186726035e-05,
+    "M": 0.0001774132939364,
+    "H": 0.0024416775374902
+  },
+  "max_spend_budget_012": 0.1198822313580269,
+  "max_spend_budget_005": 0.0499987380213145,
+  "full_size_paired_mean_value_gap": 0.0478610755885462,
+  "paired_feasible_counts": {
+    "128": 5,
+    "256": 108,
+    "512": 202,
+    "2048": 240,
+    "8192": 240,
+    "32768": 240
+  },
+  "main_qp_calls": 432070,
+  "bound_comparison_qp_calls": 20712,
+  "plotted_ledger_episode": 0
+}

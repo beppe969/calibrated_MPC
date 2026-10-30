@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "manuscript_pages": 8,
+  "manuscript_source_included": false,
+  "manuscript_pdf": "paper/manuscript.pdf",
+  "figures_compiled": 4,
+  "figures_visually_checked": 4,
+  "standalone_png_resolution_dpi": 200
+}

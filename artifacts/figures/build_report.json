@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "figures": [
+    {
+      "pdf": "figure_1_architecture.pdf",
+      "source": "paper/figures/fig_architecture.tex",
+      "png": "figure_1_architecture.png"
+    },
+    {
+      "pdf": "figure_2_risk_maps.pdf",
+      "source": "paper/figures/fig_risk_maps.tex",
+      "png": "figure_2_risk_maps.png"
+    },
+    {
+      "pdf": "figure_3_tradeoff_attainability.pdf",
+      "source": "paper/figures/fig_tradeoff_gap.tex",
+      "png": "figure_3_tradeoff_attainability.png"
+    },
+    {
+      "pdf": "figure_4_budget_shift.pdf",
+      "source": "paper/figures/fig_budget_shift.tex",
+      "png": "figure_4_budget_shift.png"
+    }
+  ],
+  "manuscript": "manuscript.pdf",
+  "renderer": "pdftoppm at 200 dpi"
+}

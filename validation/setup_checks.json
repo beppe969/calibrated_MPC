@@ -1,0 +1,7 @@
+{
+  "installed_packages_match_lock": true,
+  "dependency_download_install_test": "blocked by DNS/network unavailability before any dependency could be downloaded",
+  "full_computation_environment": "recorded installed Python 3.13.5 environment with exact locked package versions",
+  "remote_GitHub_workflow_execution": "not run locally; workflow provided for repository execution",
+  "tested_platform": "Linux x86_64"
+}

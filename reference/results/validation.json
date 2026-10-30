@@ -1,0 +1,8 @@
+{
+  "QP_calls": 432070,
+  "QP_failure_count": 15,
+  "max_accepted_QP_primal_residual": -9.999913469505017e-07,
+  "maximum_reference_quadrature_difference": 4.2934406030425976e-16,
+  "minimum_recorded_budget": 8.324857300873179e-07,
+  "certified_max_spend_minus_budget": -8.324857301011956e-07
+}

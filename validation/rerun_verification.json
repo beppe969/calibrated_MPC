@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "mode": "full",
+  "rollout_files": 45,
+  "executed_stages_checked": 450000,
+  "main_stages_checked": 370000,
+  "main_missions_checked": 18500,
+  "calibration_max_abs_error": 0.0,
+  "max_recomputed_stage_cost_error": 3.552713678800501e-15,
+  "max_recomputed_dynamics_error": 8.881784197001252e-16,
+  "checks": [
+    "All stored rollouts: dynamics, contexts, costs, physical flags, tube misses, ledgers and episode aggregation",
+    "Independent design and exogenous streams; every calibration component regenerated",
+    "Fixed paired-query identity, failed-query retention and paired value gaps"
+  ],
+  "calibration_tables_regenerated": 10,
+  "matched_queries": 240,
+  "matched_comparisons_per_rule": 1440
+}

@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=2 by 1,horizontal sep=1.7cm},
+  width=.46\textwidth,height=.26\textheight,grid=major,
+  tick label style={font=\footnotesize},label style={font=\footnotesize},
+  title style={font=\footnotesize},legend style={font=\scriptsize,draw=none,fill=none},
+  legend cell align=left
+]
+\nextgroupplot[xlabel={executed steps $t$},ylabel={remaining budget $B_t$},
+  xmin=0,xmax=20,ymin=0,ymax=.125,title={actual ledger: mission 0},
+  legend style={at={(.98,.98)},anchor=north east}]
+\addplot+[mark=square*,mark size=1.2pt,thick] table[col sep=comma,x=t,y=actual]{data/remaining_budget.csv};
+\addplot+[mark=none,thick,dashed] table[col sep=comma,x=t,y=equal]{data/remaining_budget.csv};
+\legend{SC-MPC ledger,equal-spend reference}
+\nextgroupplot[xlabel={prescribed shift parameter $\gamma$},ylabel={miss probability at $\lambda=3.5$},
+  xmin=.45,xmax=2.05,ymin=0,ymax=.007,title={within-context residual-law shift},
+  scaled y ticks=false,ylabel style={yshift=6pt},legend style={at={(.02,.98)},anchor=north west}]
+\addplot+[mark=*,thick] table[col sep=comma,x=gamma,y=reference]{data/shift_high_certificate.csv};
+\addplot+[mark=square*,thick,dashed] table[col sep=comma,x=gamma,y=certified]{data/shift_high_certificate.csv};
+\legend{reference risk in $g_H$,certified bound in $g_H$}
+\end{groupplot}
+\end{tikzpicture}

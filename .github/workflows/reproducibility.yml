@@ -1,0 +1,66 @@
+name: Reproducibility
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      full_reproduction:
+        description: Run every 500-mission experiment and rebuild all figures
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version-file: .python-version
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - run: python -m pip install -r requirements.lock
+      - run: python reproduce.py integrity
+      - run: python reproduce.py verify
+      - run: python reproduce.py smoke
+      - name: Install rendering tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-pictures texlive-fonts-recommended texlive-publishers poppler-utils
+      - run: python reproduce.py figures
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: reproducibility-checks
+          path: build/
+          retention-days: 14
+
+  full:
+    if: github.event_name == 'workflow_dispatch' && inputs.full_reproduction
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version-file: .python-version
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - run: python -m pip install -r requirements.lock
+      - name: Install rendering tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-pictures texlive-fonts-recommended texlive-publishers poppler-utils
+      - run: python reproduce.py all
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: full-reproduction
+          path: build/all/
+          retention-days: 14

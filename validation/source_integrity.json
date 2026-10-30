@@ -1,0 +1,26 @@
+{
+  "source_archive_sha256": "80dc258748ca451b79c13ea41801657138f6a31bd48eef7c3c3dd3ba8be7e957",
+  "scientific_engines": [
+    {
+      "path": "src/certified_benchmark.py",
+      "supplied_sha256": "4ea258a6951b5a58e2eaf20b0fab0246be0bdbf8ecbddfe0038efd98fce0ece7",
+      "packaged_sha256": "5d1a1646d817e6f7984c2897b0bd9eb8d90492b9e5ccaa14beccd4ab5117922b",
+      "executable_AST_identical": true
+    },
+    {
+      "path": "src/compare_certificates.py",
+      "supplied_sha256": "dd5c4cd62e5d6f53e5388d2de930061059b4f10f4629d87a5e8f463932aa71fb",
+      "packaged_sha256": "dd5c4cd62e5d6f53e5388d2de930061059b4f10f4629d87a5e8f463932aa71fb",
+      "executable_AST_identical": true
+    }
+  ],
+  "numerical_paper_inputs_byte_identical": true,
+  "numerical_paper_input_files": 17,
+  "figure_4_rendering_adjustments": {
+    "horizontal_separation_cm": 1.7,
+    "data_and_series_preserved": true,
+    "right_axis_ylabel_yshift_pt": 6
+  },
+  "manuscript_pdf_sha256": "87b9c816354f2ebd721eebae6bba1dc0feba5ef0ac40b06570d789b615f85b4b",
+  "manuscript_source_included": false
+}

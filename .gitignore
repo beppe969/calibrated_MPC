@@ -1,0 +1,11 @@
+.venv/
+build/
+__pycache__/
+*.py[cod]
+.DS_Store
+__MACOSX/
+*.aux
+*.out
+*.log
+*.synctex.gz
+!validation/*.log

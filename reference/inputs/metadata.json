@@ -1,0 +1,33 @@
+{
+  "seeds": {
+    "design": 101,
+    "calibration": 2
+  },
+  "dtype": "float64",
+  "array_shapes": {
+    "design_L": [
+      4096,
+      2
+    ],
+    "design_M": [
+      4096,
+      2
+    ],
+    "design_H": [
+      4096,
+      2
+    ],
+    "calibration_L": [
+      131072,
+      2
+    ],
+    "calibration_M": [
+      65536,
+      2
+    ],
+    "calibration_H": [
+      32768,
+      2
+    ]
+  }
+}

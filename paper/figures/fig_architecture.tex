@@ -1,0 +1,80 @@
+\begin{tikzpicture}[
+    node distance=1.8cm and 1.8cm,
+    >=Latex,
+    line/.style={-Latex, thick},
+    dashline/.style={-Latex, thick, dashed},
+    box/.style={
+        draw,
+        rounded corners=2pt,
+        align=center,
+        minimum height=1.15cm,
+        text width=0.18\textwidth,
+        inner sep=5pt,
+        font=\small
+    },
+    widebox/.style={
+        draw,
+        rounded corners=2pt,
+        align=center,
+        minimum height=1.15cm,
+        text width=0.22\textwidth,
+        inner sep=6pt,
+        font=\small
+    },
+    note/.style={
+        draw,
+        rounded corners=2pt,
+        align=center,
+        text width=0.56\textwidth,
+        inner sep=6pt,
+        font=\small
+    }
+]
+
+% Main pipeline
+\node[box] (data)
+{Calibration data\\
+residuals and contexts};
+
+\node[widebox, right=of data] (risk)
+{Weighted risk map\\
+$(g,\lambda)\mapsto \bar r_g(\lambda)$};
+
+\node[widebox, right=of risk] (budget)
+{Budget-aware radius choice\\
+pick $(\alpha_t,\lambda_t)$ so that\\
+$\bar r_{g_t}(\lambda_t)\le \alpha_t$};
+
+\node[box, right=of budget] (mpc)
+{Tube MPC\\
+solve tightened problem};
+
+\node[box, right=of mpc] (plant)
+{Plant and learned model\\
+state $x_t$, input $u_t$, error $e_t$};
+
+% Mission guarantee box
+\node[note, below=1.7cm of budget] (guar)
+{\color{revisioncolor}On the calibration event $\Omega$, hard-feasible implemented plans with
+$\sum_t p_t\le\varepsilon$ satisfy
+$\mathbb E[N_T\mid\Omega]\le\varepsilon$.};
+
+% Forward arrows
+\draw[line] (data) -- (risk);
+\draw[line] (risk) -- (budget);
+\draw[line] (budget) -- (mpc);
+\draw[line] (mpc) -- node[above, font=\footnotesize] {$u_t$} (plant);
+
+% Vertical arrow to guarantee
+\draw[line] (budget.south) -- (guar.north);
+
+% Feedback loop routed below the blocks
+\coordinate (fb1) at ($(plant.south)+(0,-0.9)$);
+\coordinate (fb2) at ($(risk.south)+(0,-0.9)$);
+
+\draw[dashline] (plant.south) -- (fb1)
+    -- node[midway, below=2pt, font=\footnotesize, align=center, text=black]
+    {valid refresh requires\\sample splitting/conf. spending}
+    (fb2) -- (risk.south);
+
+\end{tikzpicture}

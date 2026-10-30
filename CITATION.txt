@@ -1,0 +1,3 @@
+Reproducibility package for “Closed-Loop Calibrated Robustness for Tube MPC: Risk-Budgeting under Feedback Covariate Shift”
+Final manuscript: paper/manuscript.pdf
+Repository: https://github.com/beppe969/calibrated_MPC

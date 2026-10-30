@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=3 by 1, horizontal sep=0.9cm},
+  width=0.29\textwidth, height=0.23\textheight,
+  xlabel={$\lambda$}, ylabel={miss probability},
+  xmin=.35, xmax=3.55, ymode=log, ymin=1e-8, ymax=1,
+  grid=major, tick label style={font=\footnotesize},
+  label style={font=\footnotesize}, title style={font=\footnotesize},
+  legend style={font=\scriptsize,draw=none,fill=none},legend columns=3
+]
+\nextgroupplot[title={low context $g_L$},legend to name=risklegend]
+\addplot+[mark=*,mark size=1.3pt,thick] table[col sep=comma,x=lambda,y=true]{data/riskmap_low.csv};
+\addplot+[mark=none,thick,dotted] table[col sep=comma,x=lambda,y=eb]{data/riskmap_low.csv};
+\addplot+[mark=square*,mark size=1.3pt,thick,dashed] table[col sep=comma,x=lambda,y=upper]{data/riskmap_low.csv};
+\legend{reference risk,EB component,combined certificate}
+\nextgroupplot[title={medium context $g_M$},ylabel={}]
+\addplot+[mark=*,mark size=1.3pt,thick] table[col sep=comma,x=lambda,y=true]{data/riskmap_med.csv};
+\addplot+[mark=none,thick,dotted] table[col sep=comma,x=lambda,y=eb]{data/riskmap_med.csv};
+\addplot+[mark=square*,mark size=1.3pt,thick,dashed] table[col sep=comma,x=lambda,y=upper]{data/riskmap_med.csv};
+\nextgroupplot[title={high context $g_H$},ylabel={}]
+\addplot+[mark=*,mark size=1.3pt,thick] table[col sep=comma,x=lambda,y=true]{data/riskmap_high.csv};
+\addplot+[mark=none,thick,dotted] table[col sep=comma,x=lambda,y=eb]{data/riskmap_high.csv};
+\addplot+[mark=square*,mark size=1.3pt,thick,dashed] table[col sep=comma,x=lambda,y=upper]{data/riskmap_high.csv};
+\end{groupplot}
+\end{tikzpicture}
+
+\par\ref{risklegend}

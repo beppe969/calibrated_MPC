@@ -1,0 +1,18 @@
+test_binomial_endpoints_and_inverted_tails (test_core.CoreTests.test_binomial_endpoints_and_inverted_tails) ... ok
+test_binomial_input_validation (test_core.CoreTests.test_binomial_input_validation) ... ok
+test_condensed_dynamics_cost_and_gradient (test_core.CoreTests.test_condensed_dynamics_cost_and_gradient) ... ok
+test_context_boundaries (test_core.CoreTests.test_context_boundaries) ... ok
+test_finite_sum_tube_support (test_core.CoreTests.test_finite_sum_tube_support) ... ok
+test_frozen_design_reproducibility (test_core.CoreTests.test_frozen_design_reproducibility) ... ok
+test_full_horizon_input_margin (test_core.CoreTests.test_full_horizon_input_margin) ... ok
+test_geometric_infeasibility (test_core.CoreTests.test_geometric_infeasibility) ... ok
+test_grid_attainability_and_tie_break (test_core.CoreTests.test_grid_attainability_and_tie_break) ... ok
+test_nested_radius_value_and_primal_check (test_core.CoreTests.test_nested_radius_value_and_primal_check) ... ok
+test_nonsymmetric_ellipsoid_support (test_core.CoreTests.test_nonsymmetric_ellipsoid_support) ... ok
+test_recovery_preserves_unspent_ledger (test_core.CoreTests.test_recovery_preserves_unspent_ledger) ... ok
+test_riccati_equation_and_closed_loop_stability (test_core.CoreTests.test_riccati_equation_and_closed_loop_stability) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.052s
+
+OK

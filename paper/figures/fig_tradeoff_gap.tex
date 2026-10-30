@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=2 by 1,horizontal sep=1.5cm},
+  width=.46\textwidth,height=.26\textheight,grid=major,
+  tick label style={font=\footnotesize},label style={font=\footnotesize},
+  title style={font=\footnotesize},
+  legend style={font=\scriptsize,draw=none,fill=none},legend cell align=left
+]
+\nextgroupplot[xlabel={requested mission budget $\varepsilon$},ylabel={common realized cost $C$},
+  xmin=.04,xmax=.25,ymin=5.280,ymax=5.305,title={common state/input cost},
+  scaled y ticks=false,yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=3},
+  legend to name=costlegend,legend columns=4]
+\addplot+[mark=*,mark size=1.5pt,thick] table[col sep=comma,x=budget,y=common_cost]{data/cost_oracle.csv};
+\addplot+[mark=square*,mark size=1.5pt,thick] table[col sep=comma,x=budget,y=common_cost]{data/cost_certified.csv};
+\addplot+[mark=triangle*,mark size=1.5pt,thick] table[col sep=comma,x=budget,y=common_cost]{data/cost_global_fixed.csv};
+\addplot+[mark=o,mark size=1.5pt,thick] table[col sep=comma,x=budget,y=common_cost]{data/cost_worstcase.csv};
+\addplot+[mark=diamond*,mark size=1.5pt,thick] table[col sep=comma,x=budget,y=common_cost]{data/cost_ball_backloaded.csv};
+\addplot+[mark=pentagon*,mark size=1.5pt,thick] table[col sep=comma,x=budget,y=common_cost]{data/cost_ellipsoid_fixed.csv};
+\addplot+[mark=+,mark size=1.5pt,thick] table[col sep=comma,x=budget,y=common_cost]{data/cost_nominal.csv};
+\legend{reference risk,SC-MPC,fixed global ball,fixed region,backloaded balls,fixed ellipsoids,nominal MPC}
+\nextgroupplot[xlabel={base calibration size $n_0$},ylabel={feasible matched queries},
+  xmode=log,log basis x=2,xmin=100,xmax=45000,ymin=-.04,ymax=1.05,
+  xtick={128,512,2048,8192,32768},xticklabels={128,512,2048,8192,32768},
+  ytick={0,.25,.5,.75,1},yticklabels={0\%,25\%,50\%,75\%,100\%},
+  title={attainability on 240 fixed queries},legend to name=boundlegend,legend columns=2]
+\addplot+[mark=o,thick,dotted] table[col sep=comma,x=nbase,y=EB_fraction]{data/bound_attainability.csv};
+\addplot+[mark=square*,thick] table[col sep=comma,x=nbase,y=hybrid_fraction]{data/bound_attainability.csv};
+\legend{EB certificate,combined certificate}
+\end{groupplot}
+\end{tikzpicture}
+\par\ref{costlegend}\quad\ref{boundlegend}
